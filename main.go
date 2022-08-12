@@ -1,26 +1,18 @@
 package main
 
 import (
-	"fmt"
-	"os"
+	"DumbTranslator/bot"
+	"DumbTranslator/config"
+	"log"
 )
-
-const (
-	exitStatusOK = iota
-	exitStatusCLIError
-	exitStatusConvertError
-)
-
-func Convert(inp string) string {
-	return inp
-}
 
 func main() {
-	inputText := ""
-
-	if inputText != "" {
-		inputText := Convert(inputText)
-		fmt.Println(inputText)
-		os.Exit(exitStatusOK)
+	err := config.ReadConfig()
+	if err != nil {
+		log.Fatal(err)
+		return
 	}
+	bot.Run()
+	<-make(chan struct{})
+	return
 }
