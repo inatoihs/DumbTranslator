@@ -1,6 +1,7 @@
 package bot
 
 import (
+	"DumbTranslator/Convert"
 	"DumbTranslator/config"
 	"log"
 
@@ -37,6 +38,6 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 	// If the message is "Hi" reply with "Hi Back!!"
 	if m.Content != "" {
-		_, _ = s.ChannelMessageSend(m.ChannelID, m.Content)
+		_, _ = s.ChannelMessageSend(m.ChannelID, Convert.Convert(m.Content))
 	}
 }
