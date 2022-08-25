@@ -2,9 +2,19 @@ package commands
 
 import (
 	"fmt"
-	
+
 	"github.com/bwmarrin/discordgo"
 )
+
+// func onCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
+// 	switch i.Data.Type().String() {
+// 	case "ojaru":
+// 		onOjaruCommand(s, i)
+// 	default:
+// 		break
+// 	}
+// }
+
 
 var (
 	Commands        = make([]*discordgo.ApplicationCommand, 0)
